@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\News;
 use App\History;
 use Carbon\Carbon;
+use Storage;
 
 class NewsController extends Controller
 {
@@ -23,9 +24,9 @@ class NewsController extends Controller
       // formに画像があれば、保存する
       if (isset($form['image'])) {
         // public/imageに画像を保存する（ローカル環境）
-        $path = $request->file('image')->store('public/image');
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
         // 画像の名前をbasename(省略形)で保存する
-        $news->image_path = basename($path);
+        $news->image_path = Storage::disk('s3')->url($path);
       } else {
           $news->image_path = null;
       }
@@ -76,8 +77,8 @@ class NewsController extends Controller
       if ($request->remove == 'true') {
         $news_form['image_path'] = null;
       } elseif ($request->file('image')) {
-        $path = $request->file('image')->store('public/image');
-        $news_form['image_path'] = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $news_form['image_path'] = Storage::disk('s3')->url($path);
       } else {
         $news_form['image_path'] = $news->image_path;
       }
