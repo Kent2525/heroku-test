@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <p style="font-size: 20px">課題用 PHP/Laravelコース 完</p>
+    <p style="font-size: 20px">簡易ブログシステム</p>
     <hr color="#c0c0c0">
     @if (!is_null($headline))
       <div class="row">
