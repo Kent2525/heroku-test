@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <p style="font-size: 20px">簡易ブログシステム</p>
+    <p style="font-size: 20px">簡易ブログ</p>
     <hr color="#c0c0c0">
     @if (!is_null($headline))
       <div class="row">
