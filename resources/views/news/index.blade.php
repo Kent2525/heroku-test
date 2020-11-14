@@ -55,6 +55,7 @@
         @endforeach 
       </div>
     </div>
+    <p class="text-center">Copyright ©簡易ブログ All rights reserved.</p>
   </div>
   </div>
 @endsection
