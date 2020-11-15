@@ -38,6 +38,7 @@
               </tr>
             </thead>
             <tbody>
+              <!--検索結果のpostsはここにくる-->
               @foreach($posts as $news)
                 <tr>
                   <th>{{ $news->id }}</th>
