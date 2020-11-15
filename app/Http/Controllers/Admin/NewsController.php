@@ -41,7 +41,7 @@ class NewsController extends Controller
       return redirect('admin/news/create');
   }
 
-  // 以下を追記
+  // admin/newsに入ったらまずここを通る。文字検索をしたらもう１回ここに戻ってくる
   public function index(Request $request)
   {
       $cond_title = $request->cond_title;
