@@ -84,7 +84,6 @@ class NewsController extends Controller
         unset($news_form['remove']);
         $news->fill($news_form)->save();
 
-        // 以下を追記
         $history = new History;
         $history->news_id = $news->id;
         $history->edited_at = Carbon::now();
