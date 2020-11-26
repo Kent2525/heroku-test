@@ -65,6 +65,7 @@ class NewsController extends Controller
       return view ('admin.news.edit', ['news_form' => $news]);
   }
   
+    // ニュース更新した時の処理
     public function update(Request $request)
     {
         $this->validate($request, News::$rules);
