@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 use App\ProfileHistory;
 use Carbon\Carbon;
+// use DebugBarDebugBar;
+
 
 class ProfileController extends Controller
 {
@@ -26,6 +28,7 @@ class ProfileController extends Controller
       unset($form['_token']);
       
       $profile->fill($form);
+      // Debugbar::info($profile);
       $profile->save();
       
       return redirect('admin/profile/create');
